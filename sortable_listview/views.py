@@ -98,7 +98,7 @@ class SortableListView(ListView):
         """
         to_remove = self.get_querystring_parameter_to_remove()
         query_string = urlparse(self.request.get_full_path()).query
-        query_dict = parse_qs(query_string.encode('utf-8'))
+        query_dict = parse_qs(query_string)
         for arg in to_remove:
             if arg in query_dict:
                 del query_dict[arg]
